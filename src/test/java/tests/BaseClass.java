@@ -1,4 +1,5 @@
 package tests;
+
 import io.appium.java_client.android.AndroidDriver;
 //import io.appium.java_client.touch.action.TouchAction;
 //import io.appium.java_client.touch.offset.PointOption;
@@ -13,21 +14,22 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class BaseClass {
 
-    protected AndroidDriver driver;
+	protected AndroidDriver driver;
 
-    @BeforeTest
-    public void setUp() throws MalformedURLException, URISyntaxException {
-        DesiredCapabilities cap = new DesiredCapabilities();
-        cap.setCapability("platformName", "Android");
-        cap.setCapability("appium:deviceName", "Redmi 10C");
-        cap.setCapability("appium:automationName", "UiAutomator2");
+	@BeforeTest
+	public void setUp() throws MalformedURLException, URISyntaxException {
+		DesiredCapabilities cap = new DesiredCapabilities();
+		cap.setCapability("platformName", "Android");
+		cap.setCapability("appium:deviceName", "Redmi 10C");
+		cap.setCapability("appium:automationName", "UiAutomator2");
 
-        cap.setCapability("appium:app", "C:\\Users\\ICA-4024\\Downloads\\application-1dcb5b9b-3352-4356-ab31-64a480be13f1.apk");
+		cap.setCapability("appium:app",
+				"C:\\Users\\ICA-4024\\Downloads\\application-1dcb5b9b-3352-4356-ab31-64a480be13f1.apk");
 
-        URL url = URI.create("http://127.0.0.1:4723/").toURL();
-                
-        driver = new AndroidDriver(url, cap);
-    }
+		URL url = URI.create("http://127.0.0.1:4723/").toURL();
+
+		driver = new AndroidDriver(url, cap);
+	}
 
 //    public void swipeMobileScreenDown() {
 //        Dimension screenSize = driver.manage().window().getSize();
@@ -48,11 +50,11 @@ public class BaseClass {
 //              .perform();                                  // Perform the swipe action
 //    }
 
-
 	@AfterTest
-    public void tearDown() {
-        if (driver != null) {
-            driver.quit();
-        }
-    }
+	public void tearDown() {
+		if (driver != null) {
+			driver.quit();
+			
+		}
+	}
 }

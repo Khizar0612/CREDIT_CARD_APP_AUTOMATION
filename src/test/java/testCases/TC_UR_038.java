@@ -1,28 +1,33 @@
 package testCases;
+
 import org.testng.annotations.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-public class TC_UR_038 extends Base{
+public class TC_UR_038 extends Base {
 
 	@Test
 	public void test() throws InterruptedException {
-		
+
 		Thread.sleep(5000);
 
-		WebElement getStartedBtn = driver.findElement(By.xpath("//android.view.ViewGroup[@content-desc=\"Get Started\"]"));
+		WebElement getStartedBtn = driver
+				.findElement(By.xpath("//android.view.ViewGroup[@content-desc=\"Get Started\"]"));
 		getStartedBtn.click();
 		Thread.sleep(5000);
 
-		WebElement forgetUserIdLink = driver.findElement(By.xpath("//android.widget.TextView[@text=\"Forget Username?\"]"));
+		WebElement forgetUserIdLink = driver
+				.findElement(By.xpath("//android.widget.TextView[@text=\"Forget Username?\"]"));
 		forgetUserIdLink.click();
 		Thread.sleep(5000);
 
-		WebElement email = driver.findElement(By.xpath("//android.widget.EditText[@resource-id=\"text-input-outlined\" and @text=\"Enter your email address\"]"));
+		WebElement email = driver.findElement(By.xpath(
+				"//android.widget.EditText[@resource-id=\"text-input-outlined\" and @text=\"Enter your email address\"]"));
 		email.sendKeys("ksaeed@iconsult.com.pk");
 		Thread.sleep(5000);
 
-		WebElement mobNum = driver.findElement(By.xpath("//android.widget.EditText[@resource-id=\"text-input-outlined\" and @text=\"Enter your mobile number\"]"));
+		WebElement mobNum = driver.findElement(By.xpath(
+				"//android.widget.EditText[@resource-id=\"text-input-outlined\" and @text=\"Enter your mobile number\"]"));
 		mobNum.sendKeys("92324567880");
 		Thread.sleep(5000);
 
@@ -30,5 +35,4 @@ public class TC_UR_038 extends Base{
 		sendBtn.click();
 
 	}
-	
 }

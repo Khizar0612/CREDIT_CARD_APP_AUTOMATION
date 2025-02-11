@@ -1,4 +1,5 @@
 package testCases;
+
 import org.testng.annotations.Test;
 import Jdbc.Jdbc;
 import tests.OTPUtil;
@@ -83,21 +84,23 @@ public class TC_UR_042 extends Base {
 		verifyOTP.click();
 
 		Thread.sleep(1000);
-		WebElement newPassword = driver.findElement(By.xpath("//android.widget.EditText[@resource-id=\"text-input-outlined\" and @text=\"Enter your password\"]"));
+		WebElement newPassword = driver.findElement(By.xpath(
+				"//android.widget.EditText[@resource-id=\"text-input-outlined\" and @text=\"Enter your password\"]"));
 		newPassword.sendKeys("Civic@1234");
-		
+
 		Thread.sleep(1000);
-		WebElement cnfrmPassword = driver.findElement(By.xpath("//android.widget.EditText[@resource-id=\"text-input-outlined\" and @text=\"Confirm your password\"]"));
+		WebElement cnfrmPassword = driver.findElement(By.xpath(
+				"//android.widget.EditText[@resource-id=\"text-input-outlined\" and @text=\"Confirm your password\"]"));
 		cnfrmPassword.sendKeys("Civic@1234");
-		
+
 		Thread.sleep(1000);
 		WebElement doneBtn = driver.findElement(By.xpath("//android.widget.TextView[@text=\"Done\"]"));
 		doneBtn.click();
-		
+
 		Thread.sleep(1000);
 		WebElement OKBtn = driver.findElement(By.xpath("//android.widget.TextView[@text=\"Ok\"]"));
-		OKBtn.click();	
-		
+		OKBtn.click();
+
 //      WebElement text = driver.findElement(By.xpath("//android.widget.TextView[@text="Your new password has been set successfully!"]"));
 //      String actualText = text.getText();
 //      String expectedText = "Your new password has been set successfully!";
@@ -105,5 +108,4 @@ public class TC_UR_042 extends Base {
 //      Thread.sleep(2000);
 
 	}
-
 }

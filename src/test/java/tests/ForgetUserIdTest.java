@@ -1,5 +1,5 @@
 package tests;
-import org.testng.Assert;
+
 import org.testng.annotations.Test;
 import Jdbc.Jdbc;
 import java.time.Duration;
@@ -47,7 +47,7 @@ public class ForgetUserIdTest extends BaseClass {
 		System.out.println("Fetched OTP: " + otp); // For debugging
 
 		try {
-			Thread.sleep(3000); 
+			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			e.printStackTrace(); // Handle interruption
 		}
@@ -55,19 +55,24 @@ public class ForgetUserIdTest extends BaseClass {
 		if (otp != null && otp.length() == 6) {
 			String[] otpDigits = OTPUtil.extractDigits(otp);
 
-			WebElement otp1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//android.widget.EditText)[1]")));
+			WebElement otp1 = wait
+					.until(ExpectedConditions.elementToBeClickable(By.xpath("(//android.widget.EditText)[1]")));
 			otp1.sendKeys(otpDigits[0]);
-			WebElement otp2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//android.widget.EditText)[2]")));
+			WebElement otp2 = wait
+					.until(ExpectedConditions.elementToBeClickable(By.xpath("(//android.widget.EditText)[2]")));
 			otp2.sendKeys(otpDigits[1]);
-			WebElement otp3 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//android.widget.EditText)[3]")));
+			WebElement otp3 = wait
+					.until(ExpectedConditions.elementToBeClickable(By.xpath("(//android.widget.EditText)[3]")));
 			otp3.sendKeys(otpDigits[2]);
-			WebElement otp4 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//android.widget.EditText)[4]")));
+			WebElement otp4 = wait
+					.until(ExpectedConditions.elementToBeClickable(By.xpath("(//android.widget.EditText)[4]")));
 			otp4.sendKeys(otpDigits[3]);
-			WebElement otp5 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//android.widget.EditText)[5]")));
+			WebElement otp5 = wait
+					.until(ExpectedConditions.elementToBeClickable(By.xpath("(//android.widget.EditText)[5]")));
 			otp5.sendKeys(otpDigits[4]);
-			WebElement otp6 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//android.widget.EditText)[6]")));
+			WebElement otp6 = wait
+					.until(ExpectedConditions.elementToBeClickable(By.xpath("(//android.widget.EditText)[6]")));
 			otp6.sendKeys(otpDigits[5]);
-			
 
 			WebElement verifyOTP = driver.findElement(By.xpath("//android.widget.TextView[@text=\"Verify OTP\"]"));
 			verifyOTP.click();
@@ -78,26 +83,20 @@ public class ForgetUserIdTest extends BaseClass {
 
 		WebElement verifyOTP = driver.findElement(By.xpath("//android.widget.TextView[@text=\"Verify OTP\"]"));
 		verifyOTP.click();
-
-//		WebElement dialogBox = driver.findElement(By.xpath("//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup"));
-	
-		WebElement successMsg = driver.findElement(By.xpath("//android.widget.TextView[@text=\"Ok\"]"));
-		
-//		WebElement successMsg = driver.findElement(By.xpath("//android.view.ViewGroup[@content-desc=\"Ok\"]"));
-	
 		Thread.sleep(2000);
+
+//		WebElement successMsg = driver.findElement(By.xpath("//android.widget.TextView[@text=\"Ok\"]"));
+
+//		Thread.sleep(2000);
 //		String actualText = successMsg.getText();
 //		String expectedText = "Your username has been sent to the registered email!";
 //		Assert.assertEquals(actualText, expectedText);
 //		Thread.sleep(1000);
-	
+
 //		String success = successMsg.getText();
 //		String expectedText = "Success";
 //		Assert.assertEquals(success, expectedText);
 //		Thread.sleep(1000);
 
 	}
-
-	// Resend OTP Element
-	// android.widget.TextView[@text="Resend OTP"]
 }

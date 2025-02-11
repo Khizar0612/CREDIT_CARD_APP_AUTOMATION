@@ -1,4 +1,5 @@
 package testCases;
+
 import org.testng.annotations.Test;
 import java.time.Duration;
 import org.openqa.selenium.By;
@@ -6,11 +7,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class TC_UR_048 extends Base{
+public class TC_UR_048 extends Base {
 
 	@Test
 	public void test() throws InterruptedException {
-	
+
 		Thread.sleep(5000);
 
 		WebElement getStartedBtn = driver
@@ -18,15 +19,18 @@ public class TC_UR_048 extends Base{
 		getStartedBtn.click();
 		Thread.sleep(5000);
 
-		WebElement forgetUserIdLink = driver.findElement(By.xpath("//android.widget.TextView[@text=\"Forget Password?\"]"));
+		WebElement forgetUserIdLink = driver
+				.findElement(By.xpath("//android.widget.TextView[@text=\"Forget Password?\"]"));
 		forgetUserIdLink.click();
 		Thread.sleep(5000);
 
-		WebElement email = driver.findElement(By.xpath("//android.widget.EditText[@resource-id=\"text-input-outlined\" and @text=\"Enter your email address\"]"));
+		WebElement email = driver.findElement(By.xpath(
+				"//android.widget.EditText[@resource-id=\"text-input-outlined\" and @text=\"Enter your email address\"]"));
 		email.sendKeys("ksaeed@iconsult.com.pk");
 		Thread.sleep(5000);
 
-		WebElement mobNum = driver.findElement(By.xpath("//android.widget.EditText[@resource-id=\"text-input-outlined\" and @text=\"Enter your mobile number\"]"));
+		WebElement mobNum = driver.findElement(By.xpath(
+				"//android.widget.EditText[@resource-id=\"text-input-outlined\" and @text=\"Enter your mobile number\"]"));
 		mobNum.sendKeys("03324567880");
 		Thread.sleep(5000);
 
@@ -35,10 +39,9 @@ public class TC_UR_048 extends Base{
 		Thread.sleep(10000);
 
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(120));
-        WebElement resendOTPLink = wait.until(ExpectedConditions.elementToBeClickable(
-            By.id("// android.widget.TextView[@text=\"Resend OTP\"]")));	
+		WebElement resendOTPLink = wait.until(
+				ExpectedConditions.elementToBeClickable(By.id("// android.widget.TextView[@text=\"Resend OTP\"]")));
 		resendOTPLink.click();
-				
-	}
 
+	}
 }

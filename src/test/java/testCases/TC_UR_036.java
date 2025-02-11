@@ -1,4 +1,5 @@
 package testCases;
+
 import org.testng.annotations.Test;
 import Jdbc.Jdbc;
 import tests.OTPUtil;
@@ -8,12 +9,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-
-public class TC_UR_036 extends Base{
+public class TC_UR_036 extends Base {
 
 	@Test
 	public void test() throws InterruptedException {
-		
+
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
 		Thread.sleep(5000);
@@ -23,15 +23,18 @@ public class TC_UR_036 extends Base{
 		getStartedBtn.click();
 		Thread.sleep(5000);
 
-		WebElement forgetUserIdLink = driver.findElement(By.xpath("//android.widget.TextView[@text=\"Forget Username?\"]"));
+		WebElement forgetUserIdLink = driver
+				.findElement(By.xpath("//android.widget.TextView[@text=\"Forget Username?\"]"));
 		forgetUserIdLink.click();
 		Thread.sleep(5000);
 
-		WebElement email = driver.findElement(By.xpath("//android.widget.EditText[@resource-id=\"text-input-outlined\" and @text=\"Enter your email address\"]"));
+		WebElement email = driver.findElement(By.xpath(
+				"//android.widget.EditText[@resource-id=\"text-input-outlined\" and @text=\"Enter your email address\"]"));
 		email.sendKeys("ksaeed@iconsult.com.pk");
 		Thread.sleep(5000);
 
-		WebElement mobNum = driver.findElement(By.xpath("//android.widget.EditText[@resource-id=\"text-input-outlined\" and @text=\"Enter your mobile number\"]"));
+		WebElement mobNum = driver.findElement(By.xpath(
+				"//android.widget.EditText[@resource-id=\"text-input-outlined\" and @text=\"Enter your mobile number\"]"));
 		mobNum.sendKeys("03324567880");
 		Thread.sleep(5000);
 
@@ -43,7 +46,7 @@ public class TC_UR_036 extends Base{
 		System.out.println("Fetched OTP: " + otp); // For debugging
 
 		try {
-			Thread.sleep(3000); 
+			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			e.printStackTrace(); // Handle interruption
 		}
@@ -51,34 +54,38 @@ public class TC_UR_036 extends Base{
 		if (otp != null && otp.length() == 6) {
 			String[] otpDigits = OTPUtil.extractDigits(otp);
 
-			WebElement otp1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//android.widget.EditText)[1]")));
+			WebElement otp1 = wait
+					.until(ExpectedConditions.elementToBeClickable(By.xpath("(//android.widget.EditText)[1]")));
 			otp1.sendKeys(otpDigits[0]);
-			WebElement otp2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//android.widget.EditText)[2]")));
+			WebElement otp2 = wait
+					.until(ExpectedConditions.elementToBeClickable(By.xpath("(//android.widget.EditText)[2]")));
 			otp2.sendKeys(otpDigits[1]);
-			WebElement otp3 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//android.widget.EditText)[3]")));
+			WebElement otp3 = wait
+					.until(ExpectedConditions.elementToBeClickable(By.xpath("(//android.widget.EditText)[3]")));
 			otp3.sendKeys(otpDigits[2]);
-			WebElement otp4 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//android.widget.EditText)[4]")));
+			WebElement otp4 = wait
+					.until(ExpectedConditions.elementToBeClickable(By.xpath("(//android.widget.EditText)[4]")));
 			otp4.sendKeys(otpDigits[3]);
-			WebElement otp5 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//android.widget.EditText)[5]")));
+			WebElement otp5 = wait
+					.until(ExpectedConditions.elementToBeClickable(By.xpath("(//android.widget.EditText)[5]")));
 			otp5.sendKeys(otpDigits[4]);
-			WebElement otp6 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//android.widget.EditText)[6]")));
+			WebElement otp6 = wait
+					.until(ExpectedConditions.elementToBeClickable(By.xpath("(//android.widget.EditText)[6]")));
 			otp6.sendKeys(otpDigits[5]);
-			
 
 			WebElement verifyOTP = driver.findElement(By.xpath("//android.widget.TextView[@text=\"Verify OTP\"]"));
 			verifyOTP.click();
 		} else {
 			System.out.println("Invalid OTP fetched: " + otp);
 		}
-		
+
 		Thread.sleep(1000);
 		WebElement verifyOTP = driver.findElement(By.xpath("//android.widget.TextView[@text=\"Verify OTP\"]"));
 		verifyOTP.click();
-		
+
 		Thread.sleep(1000);
 		WebElement OKBtn = driver.findElement(By.xpath("//android.widget.TextView[@text=\"Ok\"]"));
-		OKBtn.click();		
-		
+		OKBtn.click();
+
 	}
-	
 }

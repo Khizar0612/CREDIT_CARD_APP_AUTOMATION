@@ -2,11 +2,7 @@ package testCases;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import Jdbc.Jdbc;
 import io.appium.java_client.AppiumBy;
-import tests.OTPUtil;
-
 import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -94,7 +90,7 @@ public class TC_UR_008 extends Base {
 		WebElement nextButton2 = wait2
 				.until(ExpectedConditions.elementToBeClickable(By.xpath("//android.widget.TextView[@text='Next']")));
 		nextButton2.click();
-		
+
 		Thread.sleep(2000);
 		WebElement text = driver.findElement(By.xpath("//android.widget.TextView[contains(@text, 'Field Error')]"));
 		String actualText = text.getText();

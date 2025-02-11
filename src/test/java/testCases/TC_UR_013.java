@@ -1,4 +1,5 @@
 package testCases;
+
 import org.testng.annotations.Test;
 import io.appium.java_client.AppiumBy;
 import java.time.Duration;
@@ -42,35 +43,43 @@ public class TC_UR_013 extends Base {
 		nextBtn.click();
 		Thread.sleep(2000);
 
-		WebElement firstName = driver.findElement(By.xpath("//android.widget.EditText[@resource-id=\"text-input-outlined\" and @text=\"Enter your first name\"]"));
-        firstName.sendKeys("Ali");
-        Thread.sleep(2000);
-        
-        WebElement lastName = driver.findElement(By.xpath("//android.widget.EditText[@resource-id=\"text-input-outlined\" and @text=\"Enter your last name\"]"));
-        lastName.sendKeys("Khan");
-        Thread.sleep(2000);
+		WebElement firstName = driver.findElement(By.xpath(
+				"//android.widget.EditText[@resource-id=\"text-input-outlined\" and @text=\"Enter your first name\"]"));
+		firstName.sendKeys("Ali");
+		Thread.sleep(2000);
 
-        WebElement email = driver.findElement(By.xpath("//android.widget.EditText[@resource-id=\"text-input-outlined\" and @text=\"Enter your email address\"]"));
-        email.sendKeys("ali@pak.com.pk");
-        Thread.sleep(2000);
-        
-        WebElement num = driver.findElement(By.xpath("//android.widget.EditText[@resource-id=\"text-input-outlined\" and @text=\"Enter your mobile number\"]"));
-        num.sendKeys("+9234789089");
-        Thread.sleep(2000);
-        
-        WebElement username = driver.findElement(By.xpath("//android.widget.EditText[@resource-id=\"text-input-outlined\" and @text=\"Enter your username or email\"]"));
-        username.sendKeys("@!a11");
-        Thread.sleep(2000);
-        
-        WebElement checkBox = driver.findElement(By.xpath("//android.widget.CheckBox/android.view.ViewGroup/android.view.ViewGroup"));
-        checkBox.click();
-        Thread.sleep(2000);        
-        
-        driver.findElement(AppiumBy.androidUIAutomator(
-            "new UiScrollable(new UiSelector().className(\"android.view.ViewGroup\")).scrollIntoView(new UiSelector().text(\"Next\"))"));
+		WebElement lastName = driver.findElement(By.xpath(
+				"//android.widget.EditText[@resource-id=\"text-input-outlined\" and @text=\"Enter your last name\"]"));
+		lastName.sendKeys("Khan");
+		Thread.sleep(2000);
 
-        WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10)); 
-        WebElement nextButton = wait1.until(ExpectedConditions.elementToBeClickable(By.xpath("//android.widget.TextView[@text='Next']")));
-        nextButton.click();
+		WebElement email = driver.findElement(By.xpath(
+				"//android.widget.EditText[@resource-id=\"text-input-outlined\" and @text=\"Enter your email address\"]"));
+		email.sendKeys("ali@pak.com.pk");
+		Thread.sleep(2000);
+
+		WebElement num = driver.findElement(By.xpath(
+				"//android.widget.EditText[@resource-id=\"text-input-outlined\" and @text=\"Enter your mobile number\"]"));
+		num.sendKeys("+9234789089");
+		Thread.sleep(2000);
+
+		WebElement username = driver.findElement(By.xpath(
+				"//android.widget.EditText[@resource-id=\"text-input-outlined\" and @text=\"Enter your username or email\"]"));
+		username.sendKeys("@!a11");
+		Thread.sleep(2000);
+
+		WebElement checkBox = driver
+				.findElement(By.xpath("//android.widget.CheckBox/android.view.ViewGroup/android.view.ViewGroup"));
+		checkBox.click();
+		Thread.sleep(2000);
+
+		driver.findElement(AppiumBy.androidUIAutomator(
+				"new UiScrollable(new UiSelector().className(\"android.view.ViewGroup\")).scrollIntoView(new UiSelector().text(\"Next\"))"));
+
+		WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebElement nextButton = wait1
+				.until(ExpectedConditions.elementToBeClickable(By.xpath("//android.widget.TextView[@text='Next']")));
+		nextButton.click();
+
 	}
 }

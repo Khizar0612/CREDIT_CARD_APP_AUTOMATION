@@ -1,4 +1,5 @@
 package testCases;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import java.time.Duration;
@@ -70,5 +71,4 @@ public class TC_UR_047 extends Base {
 		Thread.sleep(2000);
 
 	}
-
 }
